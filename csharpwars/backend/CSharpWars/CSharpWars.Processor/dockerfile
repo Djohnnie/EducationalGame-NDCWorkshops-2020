@@ -1,0 +1,14 @@
+﻿FROM mcr.microsoft.com/dotnet/runtime:5.0
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the app
+COPY bin/Release/net5.0/publish /app
+
+ENV TZ=Europe/Brussels
+ENV CONNECTION_STRING=...
+ENV ARENA_SIZE=...
+
+# Start the app
+ENTRYPOINT ["dotnet", "CSharpWars.Processor.dll"]
